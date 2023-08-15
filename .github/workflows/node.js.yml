@@ -17,8 +17,6 @@ jobs:
     strategy:
       matrix:
         node-version: [18.17.1]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
@@ -28,8 +26,3 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npx cypress run --browser chrome
-    - name: Upload screenshots
-  uses: actions/upload-artifact@latest
-  with:
-      name: cypress-snapshots
-      path: cypress/snapshots
