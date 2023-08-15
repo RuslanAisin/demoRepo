@@ -18,7 +18,9 @@ jobs:
       matrix:
         node-version: [18.17.1]
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
@@ -26,3 +28,12 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npx cypress run --browser chrome
+  
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: artifacts
+        path: |
+          cypress/videos/
+          cypress/screenshots/
