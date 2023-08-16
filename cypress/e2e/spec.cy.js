@@ -16,7 +16,6 @@ describe('template spec', () => {
     .should('be.within', 10, 99)
   cy.log('**name:** ' + Cypress.env('person').name)
   cy.log('**city:** ' + Cypress.env('location').city)
-
   // save a screenshot of the test runner
   // to show what the env values were
   cy.screenshot('env', { capture: 'runner' })
