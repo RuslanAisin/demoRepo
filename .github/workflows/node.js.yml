@@ -23,6 +23,10 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
+    - name: Write the cypress.env.json file 📝
+      run: |
+        echo '${{ secrets.CYPRESS_ENV_CI }}' > cypress.env.json
+        
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
