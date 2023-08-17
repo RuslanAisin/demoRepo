@@ -15,6 +15,7 @@ describe('template spec', () => {
     cy.get('[data-qa="login-input-password"]').type(Cypress.env('password'));
     cy.log('жму войти');
     cy.get('[data-qa="account-login-submit"]').click();
+    cy.scrollTo('top');
     cy.screenshot('env', { capture: 'runner' })
 });
 });
