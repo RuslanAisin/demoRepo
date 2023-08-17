@@ -5,8 +5,8 @@ describe('template spec', () => {
       .and.to.include.keys('login', 'password');
     cy.log('**login:** ' + Cypress.env('login'))
     cy.log('**password:** ' + Cypress.env('password'))
-    cy.visit('https://www.google.com/');
+    cy.visit('https://www.hh.ru/');
     cy.get('textarea[type="search"]').type(Cypress.env('login'));
-    cy.screenshot('env', { capture: 'runner' })
+    // cy.screenshot('env', { capture: 'runner' })
 });
 });
