@@ -28,5 +28,6 @@ describe('template spec', () => {
     cy.wait(5000);
     cy.log('успех');
     cy.screenshot('ok', { capture: 'runner' });
+    
 });
 });
