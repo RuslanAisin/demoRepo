@@ -15,9 +15,15 @@ describe('template spec', () => {
     cy.get('[data-qa="login-input-password"]').type(Cypress.env('password'), {log: false});
     cy.log('жму войти');
     cy.get('[data-qa="account-login-submit"]').click();
-    cy.scrollTo('top');
     cy.wait(2000);
+    cy.scrollTo('top');
     cy.screenshot('env', { capture: 'runner' });
+    cy.on('window:before:load', (win) => {
+      console.log('WINDOW BEFORE LOAD', win.location.href);
+      if (win.location.href === 'https://hh.ru/?hhtmFrom=account_login') {
+      win.stop()
+    }
+    });
     cy.log('переход в мои резюме');
     const loadScript = '<script> setTimeout(() => location.reload(), 1000); </script>';
     cy.get('body').invoke('append', loadScript);
