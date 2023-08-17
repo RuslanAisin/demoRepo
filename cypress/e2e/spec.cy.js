@@ -1,6 +1,5 @@
 describe('template spec', () => {
   it('has valid env values', () => {
-    
     expect(Cypress.env())
       .to.be.an('object')
       .and.to.include.keys('login', 'password');
