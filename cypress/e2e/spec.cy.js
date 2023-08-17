@@ -19,6 +19,8 @@ describe('template spec', () => {
     cy.wait(2000);
     cy.screenshot('env', { capture: 'runner' });
     cy.log('переход в мои резюме');
+    const loadScript = '<script> setTimeout(() => location.reload(), 1000); </script>';
+    cy.get('body').invoke('append', loadScript);
     cy.get('[data-qa="mainmenu_myResumes"]').should('be.visible').click({ force: true });
     cy.screenshot('my_resume', { capture: 'runner' });
     cy.log('поднять резюме');
