@@ -43,4 +43,4 @@ jobs:
         path: |
           cypress/videos/
           cypress/screenshots/
-          cypress.env.json
+          # cypress.env.json
