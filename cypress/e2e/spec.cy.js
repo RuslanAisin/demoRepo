@@ -17,7 +17,11 @@ describe('template spec', () => {
     cy.get('[data-qa="account-login-submit"]').click();
     cy.scrollTo('top');
     cy.wait(2000);
-    cy.contains('Неправильные данные для входа. Пожалуйста, попробуйте снова').should('be.visible');
     cy.screenshot('env', { capture: 'runner' });
+    cy.get('[data-qa="mainmenu_myResumes"]').should('be.visible').click({ force: true });
+    cy.screenshot('my_resume', { capture: 'runner' });
+    cy.get('[data-qa="resume-update-button_actions"]').should('be.visible').click({ force: true });
+    cy.wait(5000);
+    cy.screenshot('ok', { capture: 'runner' });
 });
 });
