@@ -8,6 +8,8 @@ describe('template spec', () => {
     cy.visit('https://hh.ru/account/login');
     cy.get('[data-qa="expand-login-by-password"]').should('be.visible').click()
     cy.get('[data-qa="login-input-username"]').type(Cypress.env('login'));
+    cy.get('[data-qa="login-input-password"]').type(Cypress.env('password'));
+    cy.get('[data-qa="account-login-submit"]').click();
     // cy.screenshot('env', { capture: 'runner' })
 });
 });
