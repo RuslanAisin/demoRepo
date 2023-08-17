@@ -6,7 +6,8 @@ module.exports = defineConfig({
   viewportHeight: 1080,
   hideXHRInCommandLog: true,
   defaultCommandTimeout: 10000,
-  defaulpageLoadTimeout: 100000
+  defaulpageLoadTimeout: 100000,
+  watchForFileChanges: false
   e2e: {
     setupNodeEvents(on, config) {
       on('before:browser:launch', (browser = {}, launchOptions) => {
@@ -26,6 +27,5 @@ module.exports = defineConfig({
         }
       })
     },
-    watchForFileChanges: false
   },
 });
