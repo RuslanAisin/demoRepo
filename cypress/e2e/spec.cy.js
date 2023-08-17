@@ -23,12 +23,12 @@ describe('template spec', () => {
     cy.get('[data-qa="login-input-password"]').type(Cypress.env('password'), {log: false});
     cy.log('жму войти');
     cy.get('[data-qa="account-login-submit"]').click();
-    cy.wait(10000);
     cy.scrollTo('top');
     cy.screenshot('env', { capture: 'runner' });
-    const loadScript = '<script> setTimeout(() => location.reload(), 1000); </script>';
-    cy.get('body').invoke('append', loadScript);
+    // const loadScript = '<script> setTimeout(() => location.reload(), 1000); </script>';
+    // cy.get('body').invoke('append', loadScript);
     cy.log('переход в мои резюме');
+    cy.wait(60000);
     cy.get('[data-qa="mainmenu_myResumes"]').should('be.visible').click({ force: true });
     cy.screenshot('my_resume', { capture: 'runner' });
     cy.log('поднять резюме');
