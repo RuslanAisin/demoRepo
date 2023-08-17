@@ -16,6 +16,8 @@ describe('template spec', () => {
     cy.log('жму войти');
     cy.get('[data-qa="account-login-submit"]').click();
     cy.scrollTo('top');
-    cy.screenshot('env', { capture: 'runner' })
+    cy.wait(2000);
+    cy.contains('Неправильные данные для входа. Пожалуйста, попробуйте снова').should('be.visible');
+    cy.screenshot('env', { capture: 'runner' });
 });
 });
