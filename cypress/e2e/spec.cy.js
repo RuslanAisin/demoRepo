@@ -3,8 +3,8 @@ describe('template spec', () => {
     expect(Cypress.env())
       .to.be.an('object')
       .and.to.include.keys('login', 'password');
-    cy.log('**login:** ' + Cypress.env('login'))
-    cy.log('**password:** ' + Cypress.env('password'));
+    // cy.log('**login:** ' + Cypress.env('login'))
+    // cy.log('**password:** ' + Cypress.env('password'));
     cy.log('Перехожу на HH');
     cy.visit('https://hh.ru/account/login');
     cy.log('нажимаю кнопку ввести пароль');
