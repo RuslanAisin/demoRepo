@@ -16,6 +16,12 @@ module.exports = defineConfig({
           launchOptions.args.push('--force-device-scale-factor=1')
         };
         return launchOptions;
+      });
+      on('task', {
+        log(message) {
+          console.log(message);
+          return null;
+        }
       })
     },
   },
