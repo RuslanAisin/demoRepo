@@ -18,10 +18,13 @@ describe('template spec', () => {
     cy.scrollTo('top');
     cy.wait(2000);
     cy.screenshot('env', { capture: 'runner' });
+    cy.log('переход в мои резюме');
     cy.get('[data-qa="mainmenu_myResumes"]').should('be.visible').click({ force: true });
     cy.screenshot('my_resume', { capture: 'runner' });
+    cy.log('поднять резюме');
     cy.get('[data-qa="resume-update-button_actions"]').should('be.visible').click({ force: true });
     cy.wait(5000);
+    cy.log('успех');
     cy.screenshot('ok', { capture: 'runner' });
 });
 });
