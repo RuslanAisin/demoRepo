@@ -12,7 +12,7 @@ describe('template spec', () => {
     cy.log('ввожу логин');
     cy.get('[data-qa="login-input-username"]').type(Cypress.env('login'));
     cy.log('ввожу пароль');
-    cy.get('[data-qa="login-input-password"]').type(Cypress.env('password'));
+    cy.get('[data-qa="login-input-password"]').type(Cypress.env('password'), {log: false});
     cy.log('жму войти');
     cy.get('[data-qa="account-login-submit"]').click();
     cy.scrollTo('top');
