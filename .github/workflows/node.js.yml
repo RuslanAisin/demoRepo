@@ -25,9 +25,9 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Write the cypress.env.json file
-      run: |
-        echo '${{ secrets.CYPRESS_ENV_CI }}' > cypress.env.json
+    # - name: Write the cypress.env.json file
+    #   run: |
+    #     echo '${{ secrets.CYPRESS_ENV_CI }}' > cypress.env.json
         
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
@@ -35,6 +35,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
+      env:
+        CYPRESS_LOGIN: ${{ secrets.CYPRESS_LOGIN }}
+    - run: echo $CYPRESS_LOGIN
     - run: npx cypress run --browser chrome
   
     - name: Upload artifacts
