@@ -17,7 +17,7 @@ describe('template spec', () => {
     cy.log('нажимаю кнопку ввести пароль');
     cy.get('[data-qa="expand-login-by-password"]').should('be.visible').click();
     cy.log('ввожу логин');
-    cy.get('[data-qa="login-input-username"]').type(Cypress.env('login'), {log: false});
+    cy.get('[data-qa="login-input-username"]').type(Cypress.env('login'), {log: true});
     cy.log('ввожу пароль');
     cy.get('[data-qa="login-input-password"]').type(Cypress.env('password'), {log: false});
     cy.log('жму войти');
