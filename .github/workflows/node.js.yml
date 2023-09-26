@@ -35,9 +35,10 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-      env:
-        CYPRESS_LOGIN: ${{ secrets.CYPRESS_LOGIN }}
+     
     - run: echo $CYPRESS_LOGIN
+      env:
+        CYPRESS_login: ${{ secrets.CYPRESS_LOGIN }}
     - run: npx cypress run --browser chrome
   
     - name: Upload artifacts
