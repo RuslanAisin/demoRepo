@@ -38,8 +38,8 @@ jobs:
      
     - run: echo $CYPRESS_LOGIN
       env:
-        CYPRESS_login: ${{ secrets.CYPRESS_LOGIN }}
-    - run: npx cypress run --browser chrome
+        CYPRESS_LOGIN: ${{ secrets.CYPRESS_LOGIN }}
+    - run: npx cypress run --browser chrome --env login=$CYPRESS_LOGIN
   
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
